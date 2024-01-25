@@ -1,11 +1,13 @@
-//your JS code here. If required.
-function focusNext(currentInput) {
+function focusNext(currentInput, event) {
     const nextInput = currentInput.nextElementSibling;
     const previousInput = currentInput.previousElementSibling;
 
-    if (event.inputType === 'deleteContentBackward' && previousInput) {
+    // Check if the event type is 'delete' and the input value is empty
+    if ((event.inputType === 'delete' || event.inputType === 'deleteContentBackward')  && previousInput) {
         previousInput.focus();
+        console.log("backspace detected")
     } else if (nextInput) {
         nextInput.focus();
+        console.log("next detected")
     }
 }
